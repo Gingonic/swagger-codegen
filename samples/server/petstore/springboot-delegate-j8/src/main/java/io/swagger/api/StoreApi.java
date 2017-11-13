@@ -35,7 +35,8 @@ public interface StoreApi {
     @RequestMapping(value = "/store/order/{order_id}",
         produces = { "application/xml", "application/json" }, 
         method = RequestMethod.DELETE)
-    default ResponseEntity<Void> deleteOrder(@ApiParam(value = "ID of the order that needs to be deleted",required=true) @PathVariable("order_id") String orderId) {
+    default ResponseEntity<Void> deleteOrder(@ApiParam(value = "ID of the order that needs to be deleted",required=true )
+@PathVariable("orderId") String orderId) {
         return getDelegate().deleteOrder(orderId);
     }
 
@@ -61,7 +62,8 @@ public interface StoreApi {
     @RequestMapping(value = "/store/order/{order_id}",
         produces = { "application/xml", "application/json" }, 
         method = RequestMethod.GET)
-    default ResponseEntity<Order> getOrderById(@Min(1) @Max(5) @ApiParam(value = "ID of pet that needs to be fetched",required=true) @PathVariable("order_id") Long orderId) {
+    default ResponseEntity<Order> getOrderById(@Min(1) @Max(5) @ApiParam(value = "ID of pet that needs to be fetched",required=true )
+@PathVariable("orderId") Long orderId) {
         return getDelegate().getOrderById(orderId);
     }
 

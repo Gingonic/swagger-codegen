@@ -28,7 +28,8 @@ public class StoreApiController implements StoreApi {
     public StoreApiController(StoreApiDelegate delegate) {
         this.delegate = delegate;
     }
-    public ResponseEntity<Void> deleteOrder(@ApiParam(value = "ID of the order that needs to be deleted",required=true) @PathVariable("order_id") String orderId) {
+    public ResponseEntity<Void> deleteOrder(@ApiParam(value = "ID of the order that needs to be deleted",required=true )
+@PathVariable("orderId") String orderId) {
         return delegate.deleteOrder(orderId);
     }
 
@@ -36,7 +37,8 @@ public class StoreApiController implements StoreApi {
         return delegate.getInventory();
     }
 
-    public ResponseEntity<Order> getOrderById(@Min(1) @Max(5) @ApiParam(value = "ID of pet that needs to be fetched",required=true) @PathVariable("order_id") Long orderId) {
+    public ResponseEntity<Order> getOrderById(@Min(1) @Max(5) @ApiParam(value = "ID of pet that needs to be fetched",required=true )
+@PathVariable("orderId") Long orderId) {
         return delegate.getOrderById(orderId);
     }
 

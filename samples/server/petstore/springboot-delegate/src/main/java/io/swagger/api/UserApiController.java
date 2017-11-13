@@ -40,11 +40,13 @@ public class UserApiController implements UserApi {
         return delegate.createUsersWithListInput(body);
     }
 
-    public ResponseEntity<Void> deleteUser(@ApiParam(value = "The name that needs to be deleted",required=true) @PathVariable("username") String username) {
+    public ResponseEntity<Void> deleteUser(@ApiParam(value = "The name that needs to be deleted",required=true )
+@PathVariable("username") String username) {
         return delegate.deleteUser(username);
     }
 
-    public ResponseEntity<User> getUserByName(@ApiParam(value = "The name that needs to be fetched. Use user1 for testing. ",required=true) @PathVariable("username") String username) {
+    public ResponseEntity<User> getUserByName(@ApiParam(value = "The name that needs to be fetched. Use user1 for testing. ",required=true )
+@PathVariable("username") String username) {
         return delegate.getUserByName(username);
     }
 
@@ -56,7 +58,8 @@ public class UserApiController implements UserApi {
         return delegate.logoutUser();
     }
 
-    public ResponseEntity<Void> updateUser(@ApiParam(value = "name that need to be deleted",required=true) @PathVariable("username") String username,@ApiParam(value = "Updated user object" ,required=true )  @Valid @RequestBody User body) {
+    public ResponseEntity<Void> updateUser(@ApiParam(value = "name that need to be deleted",required=true )
+@PathVariable("username") String username,@ApiParam(value = "Updated user object" ,required=true )  @Valid @RequestBody User body) {
         return delegate.updateUser(username, body);
     }
 

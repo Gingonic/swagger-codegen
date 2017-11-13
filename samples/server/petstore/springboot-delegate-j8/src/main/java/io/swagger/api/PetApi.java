@@ -57,7 +57,8 @@ public interface PetApi {
     @RequestMapping(value = "/pet/{petId}",
         produces = { "application/xml", "application/json" }, 
         method = RequestMethod.DELETE)
-    default ResponseEntity<Void> deletePet(@ApiParam(value = "Pet id to delete",required=true) @PathVariable("petId") Long petId,@ApiParam(value = "" ) @RequestHeader(value="api_key", required=false) String apiKey) {
+    default ResponseEntity<Void> deletePet(@ApiParam(value = "Pet id to delete",required=true )
+@PathVariable("petId") Long petId,@ApiParam(value = "" ) @RequestHeader(value="api_key", required=false) String apiKey) {
         return getDelegate().deletePet(petId, apiKey);
     }
 
@@ -106,7 +107,8 @@ public interface PetApi {
     @RequestMapping(value = "/pet/{petId}",
         produces = { "application/xml", "application/json" }, 
         method = RequestMethod.GET)
-    default ResponseEntity<Pet> getPetById(@ApiParam(value = "ID of pet to return",required=true) @PathVariable("petId") Long petId) {
+    default ResponseEntity<Pet> getPetById(@ApiParam(value = "ID of pet to return",required=true )
+@PathVariable("petId") Long petId) {
         return getDelegate().getPetById(petId);
     }
 
@@ -142,7 +144,8 @@ public interface PetApi {
         produces = { "application/xml", "application/json" }, 
         consumes = { "application/x-www-form-urlencoded" },
         method = RequestMethod.POST)
-    default ResponseEntity<Void> updatePetWithForm(@ApiParam(value = "ID of pet that needs to be updated",required=true) @PathVariable("petId") Long petId,@ApiParam(value = "Updated name of the pet") @RequestPart(value="name", required=false)  String name,@ApiParam(value = "Updated status of the pet") @RequestPart(value="status", required=false)  String status) {
+    default ResponseEntity<Void> updatePetWithForm(@ApiParam(value = "ID of pet that needs to be updated",required=true )
+@PathVariable("petId") Long petId,@ApiParam(value = "Updated name of the pet") @RequestPart(value="name", required=false)  String name,@ApiParam(value = "Updated status of the pet") @RequestPart(value="status", required=false)  String status) {
         return getDelegate().updatePetWithForm(petId, name, status);
     }
 
@@ -159,7 +162,8 @@ public interface PetApi {
         produces = { "application/json" }, 
         consumes = { "multipart/form-data" },
         method = RequestMethod.POST)
-    default ResponseEntity<ModelApiResponse> uploadFile(@ApiParam(value = "ID of pet to update",required=true) @PathVariable("petId") Long petId,@ApiParam(value = "Additional data to pass to server") @RequestPart(value="additionalMetadata", required=false)  String additionalMetadata,@ApiParam(value = "file detail") @Valid @RequestPart("file") MultipartFile file) {
+    default ResponseEntity<ModelApiResponse> uploadFile(@ApiParam(value = "ID of pet to update",required=true )
+@PathVariable("petId") Long petId,@ApiParam(value = "Additional data to pass to server") @RequestPart(value="additionalMetadata", required=false)  String additionalMetadata,@ApiParam(value = "file detail") @Valid @RequestPart("file") MultipartFile file) {
         return getDelegate().uploadFile(petId, additionalMetadata, file);
     }
 

@@ -60,7 +60,8 @@ public interface UserApi {
     @RequestMapping(value = "/user/{username}",
         produces = { "application/xml", "application/json" }, 
         method = RequestMethod.DELETE)
-    ResponseEntity<Void> deleteUser(@ApiParam(value = "The name that needs to be deleted",required=true) @PathVariable("username") String username);
+    ResponseEntity<Void> deleteUser(@ApiParam(value = "The name that needs to be deleted",required=true )
+@PathVariable("username") String username);
 
 
     @ApiOperation(value = "Get user by user name", nickname = "getUserByName", notes = "", response = User.class, tags={ "user", })
@@ -71,7 +72,8 @@ public interface UserApi {
     @RequestMapping(value = "/user/{username}",
         produces = { "application/xml", "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<User> getUserByName(@ApiParam(value = "The name that needs to be fetched. Use user1 for testing. ",required=true) @PathVariable("username") String username);
+    ResponseEntity<User> getUserByName(@ApiParam(value = "The name that needs to be fetched. Use user1 for testing. ",required=true )
+@PathVariable("username") String username);
 
 
     @ApiOperation(value = "Logs user into the system", nickname = "loginUser", notes = "", response = String.class, tags={ "user", })
@@ -100,6 +102,7 @@ public interface UserApi {
     @RequestMapping(value = "/user/{username}",
         produces = { "application/xml", "application/json" }, 
         method = RequestMethod.PUT)
-    ResponseEntity<Void> updateUser(@ApiParam(value = "name that need to be deleted",required=true) @PathVariable("username") String username,@ApiParam(value = "Updated user object" ,required=true )  @Valid @RequestBody User body);
+    ResponseEntity<Void> updateUser(@ApiParam(value = "name that need to be deleted",required=true )
+@PathVariable("username") String username,@ApiParam(value = "Updated user object" ,required=true )  @Valid @RequestBody User body);
 
 }
